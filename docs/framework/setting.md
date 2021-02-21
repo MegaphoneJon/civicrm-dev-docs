@@ -64,7 +64,6 @@ The Supported Properties for settings are:
 | `default` | Default value| Value to use if setting is not set. |
 | `add` | Version added to CiviCRM| |
 | `html_type` | Html type (admin form)| This is the preferred way to describe the html type as it is not quick form specific. It will be used it present. Syntax is lower case. e.g 'select', 'radio', 'checkboxes', 'checkbox', 'text', 'textarea', 'entity_reference|
-| `quick_form_type` | Widget type (admin form)| YesNo, CheckBox, CheckBoxes, Select, EntityRef. This is not required if html_type (preferred) is set|
 |`pseudoconstant`|Provides information to build a list of available options| This is the preferred methodology for lists of options and currently supports either a callback - e.g ```['callback' => 'CRM_Core_SelectValues::geoProvider']``` or an option group name [`'optionGroupName' => 'advanced_search_options'`]. When specifying an `optionGroupName` you can optionally specify `keyColumn` to return a column from `civicrm_option_value` to use as the key.  By default the `keyColumn` is the `value` column. As of CiviCRM 5.25 arbitrary tables are also supported. The format is the same as that used for [DAO](./database/schema-definition.md#table-field-pseudoconstant)|
 |`options`|provides an array of available options|This is not the preferred methodology but make make sense for very simple lists. |
 |`entity_reference_options`|extra data to pass when adding an entity reference|e.g if the entity is not contact this make be needed as in `['entity' => 'group', 'select' => array('minimumInputLength' => 0)]`|
@@ -89,6 +88,7 @@ Deprecated settings properties are :
 | `prefetch` | Legacy support - will store the setting in the $config object| We need to migrate away from this |
 | `group` | none | This is redundant now |
 | `group_name` |  Name of group this setting belongs to.| This has been deprecated as of 4.7. Since 4.7, the two main options are `domain` or `contact`. The older names such as `CiviCRM Preferences` are treated as aliases for `domain` or `contact`.|
+| `quick_form_type` | Widget type (admin form): YesNo, CheckBox, CheckBoxes, Select, EntityRef, ChainSelect | Superseded by `html_type`.|
 
 ## Setting Storage and Retrieval
 
